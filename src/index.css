@@ -8,7 +8,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.productListing{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.productListing .productItem{
+  padding: 10px 30px;
+  width: 200px;
+  text-align: center;
 }
