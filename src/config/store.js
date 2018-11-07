@@ -10,3 +10,5 @@ const store = createStore ( rootReducer,
   )
 
   export default store;
+
+  // WATCH FIRST VIDEO AT 45 MINS TO SET UP REDUX DEV TOOLS
