@@ -11,6 +11,6 @@ export const cartItemsWithQuantity = (cartItems) => { //becuase our cart items a
 
     return accumulator
   }, []) //the ", []" starts off the accumulator as an empty array before actually running its function
-} 
+}
 
 // GREAT EXPLANATION OF WHATS GOING ON IN VIDEO 1 AT 53 MINUTES
