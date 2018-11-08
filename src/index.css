@@ -6,9 +6,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.bodyContainer{
+  width: 80%;
+  margin: 10px auto; /* adds 10 px all around each item evenly and centers everything else */
+}
+
+.productListing{
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.productListing .productItem{
+  padding: 10px 30px;
+  width: 200px;
+  text-align: center;
 }
