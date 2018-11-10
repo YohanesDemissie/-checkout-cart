@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../../index.css';
 import ProductListItem from './ProductListItem';
-import { cartItemsWithQuantity } from '../cart';
+// import { cartItemsWithQuantity } from '../cart';
 
 function ProductListing(props) {
   return <div className="productListing">
@@ -11,8 +11,8 @@ function ProductListing(props) {
         <ProductListItem
         product={product}
         addToCart={props.addToCart}
-        cart={cartItemsWithQuantity(props.cart)}
-        />) //grabbing a single item from our products database
+        cartItem={props.cart.filter( cartItem => cartItem.id === product.id)[0]}
+        />) //grabbing a single item from our products database. Then productListItem component handles quantity of that item (8:30 part 2 explains)
     }
   </div>
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.css'
 
 export default function ProductListItem(props) {
-  const thisItemInCart = props.cart.filter(item => item.id === props.product.id)[0] //grabs first index of array of items
+ //grabs first index of array of items
   return <div className="productItem">
     <h2>{props.product.name}</h2>
     <img
@@ -18,8 +18,8 @@ export default function ProductListItem(props) {
     <button
     onClick={() => props.addToCart(props.product)}
     >Add to cart({
-      thisItemInCart && thisItemInCart.quantity || 0 //if there is anything, we will get the quantity. if not, we get 0
-    })</button>
-
+      (props.cartItem && props.cartItem.quantity) || 0
+    })</button> {//if there is anything, we will get the quantity. if not, we get 0. 
+    }
   </div>
 }
