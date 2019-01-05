@@ -1,8 +1,9 @@
 import React from 'react';
-import '../../index.css'
+import '../../index.css';
+import AddButton from './AddButton';
+import RemoveButton from './RemoveButton';
 
 export default function ProductListItem(props) {
-  const thisItemInCart = props.cart.filter(item => item.id === props.product.id)[0] //grabs first index of array of items
   return <div className="productItem">
     <h2>{props.product.name}</h2>
     <img
@@ -15,11 +16,26 @@ export default function ProductListItem(props) {
 
     <p> { props.product.description }</p>
     <p> ${props.product.price} </p>
-    <button
-    onClick={() => props.addToCart(props.product)}
-    >Add to cart({
-      thisItemInCart && thisItemInCart.quantity || 0 //if there is anything, we will get the quantity. if not, we get 0
-    })</button>
+    
+    <div>
+    <AddButton
+      cartItem={props.cartItem}
+      product={props.product}
+      addToCart={props.addToCart}
+    />
+    </div>
+    
+    <div>
+    {
+      props.cartItem //if there is a cartItem, show remove button, otherwise show null (AKA dont show)
+      ? <RemoveButton
+        cartItem={props.cartItem}
+        product={props.product}
+        removeFromCart={props.removeFromCart}
+      />
+      : null
+    }
+    </div>
 
   </div>
 }
