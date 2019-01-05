@@ -11,6 +11,7 @@ function ProductListing(props) {
         <ProductListItem
         product={product}
         addToCart={props.addToCart}
+        removeFromCart={props.removeFromCart}
         cartItem={props.cart.filter( cartItem => cartItem.id === product.id)[0]}
         />) //grabbing a single item from our products database. Then productListItem component handles quantity of that item (8:30 part 2 explains)
     }
@@ -19,7 +20,7 @@ function ProductListing(props) {
 
 function mapStateToProps(state) { //maps out cart to state so way can say props.cart to get value of items (aka payload of cart)
   return {
-    cart: state.cart
+    cart: state.cart,
   }
 }
 
