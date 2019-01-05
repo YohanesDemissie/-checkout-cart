@@ -22,3 +22,5 @@ class App extends Component {
 }
 
 export default App;
+
+// STOPPED AT 15 MINUTES PART ONE!
