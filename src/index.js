@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { BrowserRouter } from 'react-router-dom';
+
+const app = <BrowserRouter>
+  <App />
+</BrowserRouter>
+ReactDOM.render(app, document.getElementById('root'));
 
 // ReactDOM.render(app, document.getElementById('root')); //new method that ties in navigation in app.js
