@@ -8,6 +8,7 @@ body {
 .page-container {
   width: 800px;
   margin: 10px auto;
+  padding: 32px;
 }
 
 .product-listing {
