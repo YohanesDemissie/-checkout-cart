@@ -6,7 +6,10 @@ function ProductListing(props) {
   return <div className='product-listing'>
     {
       props.products.map( product =>
-        <ProductListItem product={product} />)
+        <ProductListItem product={product}
+          addToCart={props.addToCart}
+          cart={props.cart} //available to us by function mapStateToProps(state)
+        />)
     }
   </div>
 }
