@@ -1,16 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-// HELPER FUNCTION
-export const cartItemsWithQuantity = (cartItems) => { //becuase our cart items are just an array at this point
-  return cartItems.reduce((accumulator, item) => { //what we want to do is go over each item and count the quantities
-    const filteredItem = accumulator.filter(itemTwo => itemTwo.id === item.id)[0]
-    filteredItem !== undefined //if filteredItem isn't undefined
-    ? filteredItem.quantity++ //add them up
-    : accumulator.push({ ...item, quantity: 1, }) //and if the accumulator is empty
-
-    return accumulator
-  }, []) //the ", []" starts off the accumulator as an empty array before actually running its function
+export default function cartItemsWithQuantity (cartItems) {
+  return cartItems.reduce((acc, item) => { //acc starts as empty array. With each iteration, quantity++
+    const filteredItem = acc.filter(item2 => item2.id === item.id)[0] //creates an item id but only one item per Id...continues below
+    filteredItem !== undefined //if item is NOT undefined, that means it already exists in the cart...
+      ? filteredItem.quantity++ //so we add a quantity value to that id
+      : acc.push({ ...item, quantity: 1, }) //if the item IS identified, returns an item id but only one item per Id. cycle starts all over for each iteration
+      return acc
+  }, [])
 }
 
-// GREAT EXPLANATION OF WHATS GOING ON IN VIDEO 1 AT 53 MINUTES
+//DEMO: cartItems = [
+//   {
+//     id: 1,
+//   },
+//   {
+//     id: 2,
+//   },
+//   {
+//     id: 2,
+//   },
+//   {
+//     id: 3,
+//   }
+// ]

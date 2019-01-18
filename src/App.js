@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import './index.css'
 import Router from './Router';
 
-const Navigation = (props) =>
+import { NavLink} from 'react-router-dom'
+
+const Navigation = (props) => <nav>
   <ul>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/my-cart'>My Cart</NavLink></li>
+    <li><NavLink to='cart'>Cart</NavLink></li>
   </ul>
+</nav>
 
 class App extends Component {
   render() {
     return (
-      <div className="bodyContainer">
+      <div className='page-container'>
         <Navigation />
         <Router />
       </div>
@@ -21,3 +22,5 @@ class App extends Component {
 }
 
 export default App;
+
+// STOPPED AT 15 MINUTES PART ONE!

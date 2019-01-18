@@ -22,3 +22,6 @@ https://www.youtube.com/watch?v=d-A0Ccg8_40 PART THREE
 - long and boring
 - 5 hours long
 
+# PayPal Checkout Documentation
+https://developer.paypal.com/docs/checkout/#integration-options
+

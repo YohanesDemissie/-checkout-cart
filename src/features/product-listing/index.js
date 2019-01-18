@@ -1,33 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import '../../index.css';
-import ProductListItem from './ProductListItem';
-// import { cartItemsWithQuantity } from '../cart';
+import ProductListItem from './product-list-item'
+import { connect } from 'react-redux'
+import cartItemsWithQuantity from '../cart'
 
 function ProductListing(props) {
-  return <div className="productListing">
+  return <div className='product-listing'>
     {
-      props.products.map( product => //iterating through properties of products with a mapping method
-        <ProductListItem
-        product={product}
-        addToCart={props.addToCart}
-        removeFromCart={props.removeFromCart}
-        cartItem={props.cart.filter( cartItem => cartItem.id === product.id)[0]}
-        />) //grabbing a single item from our products database. Then productListItem component handles quantity of that item (8:30 part 2 explains)
+      props.products.map( product =>
+        <ProductListItem product={product}
+          addToCart={props.addToCart}
+          cart={cartItemsWithQuantity(props.cart)} //available to us by function mapStateToProps(state)
+        />)
     }
   </div>
 }
 
-function mapStateToProps(state) { //maps out cart to state so way can say props.cart to get value of items (aka payload of cart)
+function mapStateToProps(state) { //now props.cart will allow us to get the full payload within this component
   return {
-    cart: state.cart,
+    cart: state.cart //grabbing this from redux
   }
 }
 
-function mapDispatchStateToProps(dispatch) {//maps all of our actions to PROPS on this component. dispatch being a shortcut for store.dispatch which is an action onto our store
-  return {
+function mapDispatchToProps(dispatch) { //maps all of our actions to props on this component
+  return{
     addToCart: (item) => {
-      dispatch({type: 'ADD', payload: item}) //dispatches action to our store
+      dispatch({ type: 'ADD', payload: item })
     },
     removeFromCart: (item) => {
       dispatch({type: 'REMOVE', payload: item})
@@ -35,4 +32,4 @@ function mapDispatchStateToProps(dispatch) {//maps all of our actions to PROPS o
   }
 }
 
-export default connect(mapStateToProps, mapDispatchStateToProps)(ProductListing); //connect is a function that takes in our to mapping functions and returns the combined functions in our component, ProductListing
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListing) //combines first 2 functions into component ProductListing

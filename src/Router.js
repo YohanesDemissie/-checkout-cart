@@ -1,25 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Cart from './components/Cart'
+import { Switch, Route } from 'react-router-dom';
 
-const Router = () => (
-  <BrowserRouter>
-    <React.Fragment>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/my-cart' component={Cart}/>
-    </React.Fragment>
-  </BrowserRouter>
-)
+import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
 
-// class Router extends Component { lines 5-9 are the same as these. More clean and straight forward since there is no "state" in the above version
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <Route exact path='/' component={Home} />
-//       </BrowserRouter>
-//     )
-//   }
-// }
+const Router = () => {
+  return( //FOR SOME REASON I HAVE TO USE RETURN METHOD AND HE DOESNT. PT. 1 10 MINUTES
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route exact path='/cart' component={CartPage} />
+    </Switch>
+  )
+}
 
 export default Router;
