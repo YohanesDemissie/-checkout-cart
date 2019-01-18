@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-export const cartItemsWithQuantity = (cartItems) => {
+export default function cartItemsWithQuantity (cartItems) {
   return cartItems.reduce((acc, item) => { //acc starts as empty array. With each iteration, quantity++
     const filteredItem = acc.filter(item2 => item2.id === item.id)[0] //creates an item id but only one item per Id...continues below
     filteredItem !== undefined //if item is NOT undefined, that means it already exists in the cart...

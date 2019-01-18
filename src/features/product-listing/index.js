@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductListItem from './product-list-item'
 import { connect } from 'react-redux'
+import cartItemsWithQuantity from '../cart'
 
 function ProductListing(props) {
   return <div className='product-listing'>
@@ -8,7 +9,7 @@ function ProductListing(props) {
       props.products.map( product =>
         <ProductListItem product={product}
           addToCart={props.addToCart}
-          cart={props.cart} //available to us by function mapStateToProps(state)
+          cart={cartItemsWithQuantity(props.cart)} //available to us by function mapStateToProps(state)
         />)
     }
   </div>
@@ -16,7 +17,7 @@ function ProductListing(props) {
 
 function mapStateToProps(state) { //now props.cart will allow us to get the full payload within this component
   return {
-    cart: state.cart
+    cart: state.cart //grabbing this from redux
   }
 }
 
