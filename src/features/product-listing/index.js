@@ -7,9 +7,10 @@ function ProductListing(props) {
   return <div className='product-listing'>
     {
       props.products.map( product =>
-        <ProductListItem product={product}
+        <ProductListItem
+          product={product}
           addToCart={props.addToCart}
-          cart={cartItemsWithQuantity(props.cart)} //available to us by function mapStateToProps(state)
+          cartItem={props.cart.filter( cartItem => cartItem.id === product.id)[0]} //available to us by function mapStateToProps(state). changed to save memory when adding to quantity instead of adding entire new product when duplicates found
         />)
     }
   </div>
