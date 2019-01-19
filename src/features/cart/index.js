@@ -1,27 +1,62 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-export default function cartItemsWithQuantity (cartItems) {
-  return cartItems.reduce((acc, item) => { //acc starts as empty array. With each iteration, quantity++
-    const filteredItem = acc.filter(item2 => item2.id === item.id)[0] //creates an item id but only one item per Id...continues below
-    filteredItem !== undefined //if item is NOT undefined, that means it already exists in the cart...
-      ? filteredItem.quantity++ //so we add a quantity value to that id
-      : acc.push({ ...item, quantity: 1, }) //if the item IS identified, returns an item id but only one item per Id. cycle starts all over for each iteration
-      return acc
-  }, [])
+function sort(items) {
+  return items.sort(( a, b) => a.id < b.id) //a nd b are 0 and first index
 }
 
-//DEMO: cartItems = [
-//   {
-//     id: 1,
-//   },
-//   {
-//     id: 2,
-//   },
-//   {
-//     id: 2,
-//   },
-//   {
-//     id: 3,
-//   }
-// ]
+function Cart(props) {
+  return <table>
+      <thead>
+        <tr>
+          <th> Item </th>
+          <th> Quantity </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          sort(props.cart).map(item => <tr>
+            <td>{item.name}</td>
+            <td>{item.quantity}</td>
+            <td>
+              <button onClick={() => props.addToCart(item)}
+              >+</button>
+
+              <button onClick={() => props.removeFromCart(item)}
+              >-</button>
+            </td>
+            <td>
+              <button onClick={() => props.removeAllFromCart(item)}
+                >Remove All From Cart
+              </button>
+            </td>
+          </tr>)
+        }
+      </tbody>
+    </table>
+}
+
+function mapStateToProps(state) {
+  return {
+    cart: state.cart
+  }
+
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addToCart: (item) => {
+      dispatch({type: 'ADD', payload: item})
+    },
+    removeFromCart: (item) => {
+      dispatch({type: 'REMOVE', payload: item})
+    },
+    removeAllFromCart: (item) => {
+      dispatch({ type: 'REMOVE_All', payload: item })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart) // connected through redux with "mapStateToProps function and "connect" method to call "mapStateToProps" passing in (Cart)
