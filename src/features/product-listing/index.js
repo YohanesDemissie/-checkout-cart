@@ -10,6 +10,7 @@ function ProductListing(props) {
         <ProductListItem
           product={product}
           addToCart={props.addToCart}
+          removeFromCart={props.removeFromCart}
           cartItem={props.cart.filter( cartItem => cartItem.id === product.id)[0]} //available to us by function mapStateToProps(state). changed to save memory when adding to quantity instead of adding entire new product when duplicates found
         />)
     }

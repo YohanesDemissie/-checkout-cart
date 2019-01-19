@@ -8,16 +8,23 @@ const addToCart =(cart, item) => {
     : [...cartWithoutItem(cart, item), { ...cartItem, quantity: cartItem.quantity + 1 }] //adds quantity to original added item above
 }
 
+const removeFromCart = (cart, item) => { //helper function. sets functions core purpose before manipulating it in methods/functions later on
+  return item.quantity === 1
+    ? [ ...cartWithoutItem(cart, item) ]
+    : [...cartWithoutItem(cart, item), { ...item, quantity: item.quantity - 1 }]
+}
+
 const cartReducer = (state = [], action) => { //state with empty as default. Action
   switch(action.type) {
     case 'ADD':
     return addToCart(state, action.payload) //passing in state which is 'state of cart', and payload whitch is the item we are trying to add 
-      case 'REMOVE': //removes the first index of item in array rather than deleting entire quantity
-        const firstMatchedIndex = state.indexOf(action.payload)
-        return state.filter((item, index) => index !== firstMatchedIndex)
+      
+    case 'REMOVE': //removes the first index of item in array rather than deleting entire quantity
+      const firstMatchedIndex = state.indexOf(action.payload)
+       return removeFromCart(state, action.payload)
 
-        default:
-          return state;
+      default:
+      return state;
   }
 }
 
