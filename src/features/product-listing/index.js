@@ -30,6 +30,9 @@ function mapDispatchToProps(dispatch) { //maps all of our actions to props on th
     },
     removeFromCart: (item) => {
       dispatch({type: 'REMOVE', payload: item})
+    },
+    removeAllFromCart: (item) => {
+      dispatch({type: 'REMOVE_ALL', payload: item})
     }
   }
 }

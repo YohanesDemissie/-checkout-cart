@@ -40,9 +40,8 @@ function Cart(props) {
 
 function mapStateToProps(state) {
   return {
-    cart: state.cart
+    cart: state.cart,
   }
-
 }
 
 function mapDispatchToProps(dispatch) {
@@ -54,8 +53,8 @@ function mapDispatchToProps(dispatch) {
       dispatch({type: 'REMOVE', payload: item})
     },
     removeAllFromCart: (item) => {
-      dispatch({ type: 'REMOVE_All', payload: item })
-    }
+      dispatch({ type: 'REMOVE_ALL', payload: item })
+    },
   }
 }
 

@@ -15,13 +15,13 @@ const removeFromCart = (cart, item) => { //helper function. sets functions core 
 }
 
 const removeAllFromCart = (cart, item) => { //helper function. sets functions core purpose before manipulating it in methods/functions later on
-  return [...cartWithoutItem(cart, item)]
+  return [ ...cartWithoutItem(cart, item) ]
 }
 
 const cartReducer = (state = [], action) => { //state with empty as default. Action
   switch(action.type) {
     case 'ADD':
-    return addToCart(state, action.payload) //passing in state which is 'state of cart', and payload whitch is the item we are trying to add 
+      return addToCart(state, action.payload) //passing in state which is 'state of cart', and payload whitch is the item we are trying to add 
       
     case 'REMOVE': //removes the first index of item in array rather than deleting entire quantity
        return removeFromCart(state, action.payload)
