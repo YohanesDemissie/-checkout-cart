@@ -9,7 +9,7 @@ export default function ProductListItem(props) {
     <img
       height={ 100 }
       title={ props.product.name}
-      src={`/products/${props.product.image}`}
+      src={props.product.image}
     />
 
       <div>
