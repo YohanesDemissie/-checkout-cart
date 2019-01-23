@@ -6,11 +6,12 @@ import { NavLink, withRouter } from 'react-router-dom' //with router allows us t
 import cart from './features/cart';
 
 const Navigation = ({ cart }) => <nav>
-  <ul className='top-menu'>
+  <ul className="top-menu">
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='cart'>Cart ({cart.reduce((acc, item) => {
       return acc + item.quantity
     }, 0)})</NavLink></li> {/* cart.reduce is necessary to accumulate total items(starting at 0), rather than just the amount of different items(ie: counting items by id rather than by quantity*/}
+    <li><NavLink to='/checkout'>Check out</NavLink></li>
   </ul>
 </nav>
 

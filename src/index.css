@@ -30,24 +30,25 @@ body {
   width: 200px;
 }
 
-ul .top-menu {
+
+.top-menu {
+  font-size: 20px;
   position: absolute;
   right: 50px;
   top: 50px;
   margin: 0;
-  
 }
 
-ul .top-menu li {
+.top-menu li {
   display: inline-block;
 }
 
-ul .top-menu li:before { /* adds a seperator to each li element */
+.top-menu li:before {
   content: '|';
   margin: 0 4px;
 }
 
-ul .top-menu li:nth-child(1):before { /* selects the first child element of li*/
+.top-menu li:nth-child(1):before {
   content: '';
   margin: 0;
 }
