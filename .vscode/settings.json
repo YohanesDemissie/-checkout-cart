@@ -1,0 +1,7 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/fdfacc9d-3986-4f1b-9433-cdf4c49713b9/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/checkout-cart",
+  "appService.deploySubpath": ""
+}
