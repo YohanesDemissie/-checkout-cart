@@ -1,11 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from './pages/HomePage';
-import CartPage from './pages/CartPage';
-import checkout from './features/checkout';
-import CheckoutPage from './pages/checkoutpage'
-import OrdersPage from './pages/orderspage'
+import HomePage from './pages/HomePage.js';
+import CartPage from './pages/CartPage.js';
+import CheckoutPage from './pages/CheckoutPage.js';
+import OrdersPage from './pages/OrdersPage';
 
 const Router = () => {
   return( //FOR SOME REASON I HAVE TO USE RETURN METHOD AND HE DOESNT. PT. 1 10 MINUTES

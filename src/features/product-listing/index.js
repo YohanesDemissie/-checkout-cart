@@ -7,7 +7,7 @@ import fetchApi from '../../modules/fetch-api'
 class ProductListing extends React.Component {
   componentDidMount() { //fires off as soon as component renders to page
     const { loadProducts } = this.props
-    fetchApi('get', "http://student-example-api.herokuapp.com/v1/products.json")
+    fetchApi('get', "https://student-example-api.herokuapp.com/v1/products.json")
       .then((json => {
         loadProducts(json)
       }))

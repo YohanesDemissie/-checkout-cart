@@ -17,3 +17,5 @@
 #Remove Reducer
 - const firstMatchIndex removes the first index of the array of dupilcates of a single item
 
+#Final Summary
+creating an online store using react, redux, react-router 4, redux-form and a real api back end to provide products!

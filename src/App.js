@@ -33,5 +33,3 @@ function mapStateToProps(state) {
 }
 
 export default withRouter(connect(mapStateToProps)(App));
-
-// STOPPED AT 15 MINUTES PART ONE!
