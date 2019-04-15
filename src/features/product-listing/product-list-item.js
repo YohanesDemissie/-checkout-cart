@@ -1,6 +1,7 @@
 import React from 'react';
 import AddButton from './add-btn'
 import RemoveButton from './remove-btn'
+import '../../styles/items.css'
 
 export default function ProductListItem(props) {
 

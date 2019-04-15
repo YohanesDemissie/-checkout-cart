@@ -1,0 +1,22 @@
+.logo {
+  position: fixed;
+  float: left;
+  width: 20%;
+}
+
+.side-menu {
+  font-size: 30px;
+  width: 200px;
+  border-radius: 5%;
+  background-color: skyblue;
+  line-height: 300%;
+  float: left;
+  position: fixed;
+  margin-top: 300px;
+}
+
+.side-menu a {
+  padding-left: 10px; 
+  display: block;
+  border-bottom: solid midnightblue;
+}

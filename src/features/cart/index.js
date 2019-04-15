@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-
 function sort(items) {
   return items.sort(( a, b) => a.id < b.id) //a nd b are 0 and first index
 }

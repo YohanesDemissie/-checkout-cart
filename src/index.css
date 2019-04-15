@@ -11,10 +11,10 @@ body {
 }
 
 .page-container {
-  width: 800px;
+  width: 60%;
   margin: 10px auto;
   padding: 32px;
-  background-color: white;
+  /* background-color: midnightblue; */
   position: relative;
 }
 
@@ -37,6 +37,7 @@ body {
   right: 50px;
   top: 50px;
   margin: 0;
+  text-decoration: none;
 }
 
 .top-menu li {
