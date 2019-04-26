@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import Router from './Router';
 import { NavLink, withRouter } from 'react-router-dom' //with router allows us to use connect on our App component without destroying the function of routing
 // import cart from './features/cart';
+// import Navigation from './pages/Navbar';
 import './styles/nav.css';
 import './styles/side-menu.css';
 
 const Navigation = ({ cart }) => <nav>
+  
   <ul className="top-menu">
     <li><NavLink className="links" to='/'>Home</NavLink></li>
     <li><NavLink className="links" to='cart'>Cart ({cart.reduce((acc, item) => {
@@ -22,32 +24,22 @@ const Navigation = ({ cart }) => <nav>
 </nav>
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showNavigation: false, //setting componenet to false to hide
-    }
-  }
 
-  onClick(e) { //event handler to show/hide component
-    e.preventDefault();
-    this.setState({ showNavigation: !this.state.showNavigation })
-  }
   render() {
     return (
       <div>
         <img className="logo" src="https://svgsilh.com/svg/402756.svg" />
+
         <nav className="side-menu">
-        {/* BUTTON TO SHOW/HIDE COMPONENT */}
-          <a onClick={this.onClick.bind(this)} href='/home'>Clothes</a>
-          <a>Shoes</a>
-          <a>Toys</a>
-          <a>Accessories</a>
+          <NavLink className="side-menu-links" to='/toys'>Toys</NavLink>
+          <NavLink className="side-menu-links" to='/shoes'>Shoes</NavLink>
+          <NavLink className="side-menu-links" to="/clothes">Clothes</NavLink>
+          <NavLink className="side-menu-links" to="/accessories">Accessories</NavLink>
         </nav>
         <div className='page-container'>
           {/* CALLING COMPONENT HIDE/SHOW FUNCTION */}
-          {this.state.showNavigation && <Navigation {...this.props} />}
-          {/* <Navigation {...this.props}/> */}
+          <Navigation {...this.props}/>
+
           <Router />
         </div>
       </div>
