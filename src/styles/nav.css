@@ -2,11 +2,30 @@
   font-size: 20px;
   text-decoration: none;
   padding-right: 10%;
-  padding-top: 15px;
+  padding-top: 0px;
   padding-bottom: 40px;
 }
 
 .links {
   text-decoration: none;
   color: white;
+}
+
+.search-input {
+  width: 180px;
+  height: 35px;
+
+}
+
+.search-image {
+  width: 20px;
+  margin-left: 5px;
+  /* margin-top: 10px; */
+}
+
+.search-button {
+  margin-left: 10px;
+  padding-bottom: 10px;
+  background-color: skyblue;
+  border-color: skyblue;
 }
