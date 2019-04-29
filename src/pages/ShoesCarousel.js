@@ -1,14 +1,13 @@
 import React from 'react';
 // import '../styles/home.css';
 import '../styles/homePage.css';
-import ShoeCarousel from './ShoesCarousel';
 
 // class HomePage extends React.Component {
 //   render() {
 //     return (
 //       <div>
 //         <h2 className="header">Home Page</h2>
-      
+
 //       </div>
 //     )
 //   }
@@ -18,22 +17,12 @@ import ShoeCarousel from './ShoesCarousel';
 // Check out my free youtube video on how to build a thumbnail gallery in react
 // https://www.youtube.com/watch?v=GZ4d3HEn9zg
 
-class HomePage extends React.Component {
+class ShoeCarousel extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       images: [
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
-      ],
-      shoes: [
         "http://www.clipartroo.com/images/63/slides-shoes-clipart-63697.png",
         "https://ui-ex.com/images/sneaker-vector-vans-3.png",
         "https://www.top5reviewed.com/wp-content/uploads/2016/04/Walking-Shoe-Guide.png",
@@ -69,7 +58,7 @@ class HomePage extends React.Component {
       })
     }
 
-    
+
 
     // This will not run if we met the if condition above
     this.setState(prevState => ({
@@ -100,18 +89,18 @@ class HomePage extends React.Component {
     return (
       <div>
         <div className="slider">
-          <h1 className="title">HomePage</h1>
+          <h1 className="title">ShoeCarousel</h1>
 
-            <div className="slider-wrapper"
-              style={{
-                transform: `translateX(${this.state.translateValue}px)`,
-                transition: 'transform ease-out 0.45s'
-              }}>
-              {
-                this.state.images.map((image, i) => (
-                  <Slide key={i} image={image} />
-                ))
-              }
+          <div className="slider-wrapper"
+            style={{
+              transform: `translateX(${this.state.translateValue}px)`,
+              transition: 'transform ease-out 0.45s'
+            }}>
+            {
+              this.state.images.map((image, i) => (
+                <Slide key={i} image={image} />
+              ))
+            }
           </div>
 
           <LeftArrow
@@ -122,15 +111,12 @@ class HomePage extends React.Component {
             goToNextSlide={this.goToNextSlide}
           />
         </div>
-        {/* TESTING 2ND SLIDE SHOW  */}
-
-        <ShoeCarousel />
       </div>
     );
   }
 };
 
-export default HomePage;
+export default ShoeCarousel;
 
 const Slide = ({ image }) => {
   const styles = {
