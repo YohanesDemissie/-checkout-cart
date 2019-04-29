@@ -6,7 +6,7 @@ class ToysPage extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="header">Toys Page</h2>
+        <h2 className="header">Toys</h2>
         <ProductListing />
       </div>
     )

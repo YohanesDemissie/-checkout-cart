@@ -1,40 +1,18 @@
 import React from 'react';
-// import '../styles/home.css';
-import '../styles/homePage.css';
-import ShoeCarousel from './ShoesCarousel';
-import ClothesCarousel from './ClothesCarousel';
-import AccessoriesCarousel from './AccessoriesCarousel';
-import Footer from './Footer';
 
-// class HomePage extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h2 className="header">Home Page</h2>
-      
-//       </div>
-//     )
-//   }
-// }
-// export default HomePage;
-
-// Check out my free youtube video on how to build a thumbnail gallery in react
-// https://www.youtube.com/watch?v=GZ4d3HEn9zg
-
-class HomePage extends React.Component {
+class AccessoriesCarousel extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       images: [
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
+        "https://www.shareicon.net/data/256x256/2015/10/20/659333_accessories_512x512.png",
+        "https://www.shareicon.net/data/256x256/2015/12/26/693261_accessories_512x512.png",
+        "https://images.vexels.com/media/users/3/149796/isolated/lists/e11c305a2043d1a67ef198805211462b-firefighter-hat-illustration.png",
+        "http://clipart-library.com/img1/1665620.png",
+        "http://www.networkpouch.com/wp-content/uploads/2017/11/Fashion-Jewelry.png",
+        "https://www.shareicon.net/data/256x256/2016/11/16/854357_clothing_512x512.png",
+        "https://kcgolfcartco.com/wp-content/uploads/2018/05/PartsServices_Icon.png",
       ],
       currentIndex: 0,
       translateValue: 0
@@ -62,7 +40,7 @@ class HomePage extends React.Component {
       })
     }
 
-    
+
 
     // This will not run if we met the if condition above
     this.setState(prevState => ({
@@ -93,18 +71,18 @@ class HomePage extends React.Component {
     return (
       <div>
         <div className="slider">
-          <h1 className="title">Vacations</h1>
+          <h1 className="title">Accessories</h1>
 
-            <div className="slider-wrapper"
-              style={{
-                transform: `translateX(${this.state.translateValue}px)`,
-                transition: 'transform ease-out 0.45s'
-              }}>
-              {
-                this.state.images.map((image, i) => (
-                  <Slide key={i} image={image} />
-                ))
-              }
+          <div className="slider-wrapper"
+            style={{
+              transform: `translateX(${this.state.translateValue}px)`,
+              transition: 'transform ease-out 0.45s'
+            }}>
+            {
+              this.state.images.map((image, i) => (
+                <Slide key={i} image={image} />
+              ))
+            }
           </div>
 
           <LeftArrow
@@ -115,16 +93,12 @@ class HomePage extends React.Component {
             goToNextSlide={this.goToNextSlide}
           />
         </div>
-        <ShoeCarousel />
-        <ClothesCarousel />
-        <AccessoriesCarousel />
-        <Footer />
       </div>
     );
   }
 };
 
-export default HomePage;
+export default AccessoriesCarousel;
 
 const Slide = ({ image }) => {
   const styles = {
@@ -152,4 +126,12 @@ const RightArrow = (props) => {
       <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
     </div>
   );
+}
+
+const RightArrowShoe = (props) => {
+  return (
+    <div className="nextArrow arrow" onClick={props.goToNextShoe}>
+      <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+    </div>
+  )
 }
