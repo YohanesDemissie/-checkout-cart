@@ -23,6 +23,33 @@
   /* margin-top: 10px; */
 }
 
+#magnifying-glass {
+  font-size: 2em;
+  display: inline-block;
+  width: 0.1em;
+  box-sizing: content-box;
+  height: 0.4em;
+  border: 0.1em solid white;
+  background-color: skyblue;
+  position: relative;
+  border-radius: 0.35em;
+  margin-bottom: 30px;
+  margin-left: 5px;
+}
+
+#magnifying-glass:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -0.25em;
+  bottom: -0.1em;
+  border-width: 0;
+  background: white;
+  width: 0.35em;
+  height: 0.08em;
+  transform: rotate(45deg);
+}
+
 .search-button {
   margin-left: 10px;
   padding-bottom: 10px;

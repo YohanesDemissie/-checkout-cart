@@ -17,8 +17,7 @@ const Navigation = ({ cart }) => <nav>
     <li><NavLink className="links" to='/checkout'>Check out</NavLink></li>
     <input class="search-input" />
 
-    <button className="search-button">
-      <img className="search-image" src="https://cdn.pixabay.com/photo/2015/12/14/20/35/magnifier-1093183_1280.png" alt="search-icon" />
+    <button id="magnifying-glass">
     </button>
   </ul>
 </nav>
