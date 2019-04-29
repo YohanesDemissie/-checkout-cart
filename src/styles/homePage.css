@@ -3,6 +3,7 @@
   width: 500px;
   margin-top: 100px;
   margin: 0 auto;
+  margin-left: 0px;
   height: 500px;
   overflow: hidden;
   white-space: nowrap;
@@ -10,7 +11,14 @@
 }
 
 .title {
-  margin-top: 50px;
+    /* margin-top: 60px; */
+  font-size: 30px;
+  /* background: black; */
+  color: black;
+  width: 60%;
+  padding-left: 15%;
+  margin-top: 0px;
+  padding-bottom: 15px;
 }
 
 .slider-wrapper {
@@ -19,6 +27,7 @@
   width: 100%;
 }
 
+/* IMAGES */
 .slide {
   /* margin-top: 50px; */
   display: inline-block;
@@ -54,7 +63,7 @@
   /* RIGHT ARROW */
   -webkit-clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
 clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
-  /* z-index: 999; */
+  z-index: 999;
 }
 
 .backArrow {
@@ -62,16 +71,12 @@ clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%)
   top: 50%;
   left: 25px;
   -webkit-clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-  /* z-index: 999; */
+  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+  /* z-index: 999;  */
   /* color: #fff; */
 }
 
 .fa-arrow-right:before, .fa-arrow-left:before {
   color: #222;
-  background-image: url('http://pixsector.com/cache/85c25e82/av668d1791f7ab43c8268.png');
-}
-
-i {
-  color: black;
+  /* background-image: url('http://pixsector.com/cache/85c25e82/av668d1791f7ab43c8268.png'); */
 }
