@@ -25,3 +25,7 @@ https://www.youtube.com/watch?v=d-A0Ccg8_40 PART THREE
 # PayPal Checkout Documentation
 https://developer.paypal.com/docs/checkout/#integration-options
 
+# HIDE/SHOW COMPONENTS onClick
+https://codepen.io/anon/pen/KzrzQZ
+
+

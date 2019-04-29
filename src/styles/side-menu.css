@@ -16,7 +16,13 @@
 }
 
 .side-menu a {
-  padding-left: 10px; 
+  text-decoration: none;
+  color: black;
+  padding-left: 10px;
   display: block;
   border-bottom: solid midnightblue;
+}
+
+.side-menu-hide {
+  display: none;
 }
