@@ -89,7 +89,7 @@ class ShoeCarousel extends React.Component {
     return (
       <div>
         <div className="slider">
-          <h1 className="title">ShoeCarousel</h1>
+          <h1 className="title">Shoes</h1>
 
           <div className="slider-wrapper"
             style={{

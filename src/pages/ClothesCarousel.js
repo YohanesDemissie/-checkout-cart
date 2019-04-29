@@ -1,17 +1,13 @@
 import React from 'react';
 // import '../styles/home.css';
 import '../styles/homePage.css';
-import ShoeCarousel from './ShoesCarousel';
-import ClothesCarousel from './ClothesCarousel';
-import AccessoriesCarousel from './AccessoriesCarousel';
-import Footer from './Footer';
 
 // class HomePage extends React.Component {
 //   render() {
 //     return (
 //       <div>
 //         <h2 className="header">Home Page</h2>
-      
+
 //       </div>
 //     )
 //   }
@@ -21,20 +17,20 @@ import Footer from './Footer';
 // Check out my free youtube video on how to build a thumbnail gallery in react
 // https://www.youtube.com/watch?v=GZ4d3HEn9zg
 
-class HomePage extends React.Component {
+class ClothesCarousel extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       images: [
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-        "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
+        "https://images.vexels.com/media/users/3/142858/isolated/lists/96ccb4d1a2a1817547a6d4e56a960ddc-blue-shirt-clothes.png",
+        "http://www.myiconfinder.com/uploads/iconsets/256-256-b910484213ee753c725545d86998d296-business.png",
+        "https://images.vexels.com/media/users/3/142984/isolated/lists/90bb441cc95b23918342b0fdb368c3e1-vest-clothes.png",
+        "http://www.myiconfinder.com/uploads/iconsets/256-256-b1a94e089facc31e9b6f13e877f77e87.png",
+        "https://vignette.wikia.nocookie.net/shop-heroes/images/4/45/Mantle.png/revision/latest?cb=20151209172307",
+        "http://icons.iconarchive.com/icons/google/noto-emoji-people-clothing-objects/256/12178-jeans-icon.png",
+        "https://shopfaithandgrace.com/files/2014/04/female-dress.png",
+        "https://iconfree.net/256x256/2018/8/6/baby-clothing-baby-clothes-kid-and-baby-icon-4988-512x512.png"
       ],
       currentIndex: 0,
       translateValue: 0
@@ -62,7 +58,7 @@ class HomePage extends React.Component {
       })
     }
 
-    
+
 
     // This will not run if we met the if condition above
     this.setState(prevState => ({
@@ -93,18 +89,18 @@ class HomePage extends React.Component {
     return (
       <div>
         <div className="slider">
-          <h1 className="title">Vacations</h1>
+          <h1 className="title">Clothes</h1>
 
-            <div className="slider-wrapper"
-              style={{
-                transform: `translateX(${this.state.translateValue}px)`,
-                transition: 'transform ease-out 0.45s'
-              }}>
-              {
-                this.state.images.map((image, i) => (
-                  <Slide key={i} image={image} />
-                ))
-              }
+          <div className="slider-wrapper"
+            style={{
+              transform: `translateX(${this.state.translateValue}px)`,
+              transition: 'transform ease-out 0.45s'
+            }}>
+            {
+              this.state.images.map((image, i) => (
+                <Slide key={i} image={image} />
+              ))
+            }
           </div>
 
           <LeftArrow
@@ -115,16 +111,12 @@ class HomePage extends React.Component {
             goToNextSlide={this.goToNextSlide}
           />
         </div>
-        <ShoeCarousel />
-        <ClothesCarousel />
-        <AccessoriesCarousel />
-        <Footer />
       </div>
     );
   }
 };
 
-export default HomePage;
+export default ClothesCarousel;
 
 const Slide = ({ image }) => {
   const styles = {
@@ -152,4 +144,12 @@ const RightArrow = (props) => {
       <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
     </div>
   );
+}
+
+const RightArrowShoe = (props) => {
+  return (
+    <div className="nextArrow arrow" onClick={props.goToNextShoe}>
+      <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+    </div>
+  )
 }
