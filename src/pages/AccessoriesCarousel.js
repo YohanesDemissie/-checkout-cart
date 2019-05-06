@@ -7,6 +7,7 @@ class AccessoriesCarousel extends React.Component {
     this.state = {
       images: [
         "https://www.shareicon.net/data/256x256/2015/10/20/659333_accessories_512x512.png",
+        
         "https://www.shareicon.net/data/256x256/2015/12/26/693261_accessories_512x512.png",
         "https://images.vexels.com/media/users/3/149796/isolated/lists/e11c305a2043d1a67ef198805211462b-firefighter-hat-illustration.png",
         "http://clipart-library.com/img1/1665620.png",

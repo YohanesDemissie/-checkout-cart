@@ -1,4 +1,5 @@
 import React from 'react';
+import DATA from '../Items/Data'
 
 class TableData extends React.Component {
   render() {
@@ -20,6 +21,29 @@ class TableTitle extends React.Component {
     )
   }
 }
+
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInput: ''
+    }
+    this.filterList = this.filterList.bind(this);
+  }
+  filterList(event) {
+    this.props.userInput(event.target.value);
+  }
+
+  render() {
+    return (
+      <input type="text"
+        placeholder="Start Typing"
+        value={this.props.searchTerm}
+        onChange={this.filterList} autoFocus>
+      </input>
+    );
+  }
+};
 
 
 class SearchMatch extends React.Component {
@@ -121,46 +145,24 @@ class App extends React.Component {
   }
 };
 
-class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userInput: ''
-    }
-    this.filterList = this.filterList.bind(this);
-  }
-  filterList (event) {
-    // console.log(this.props.userInput, 'TYPING')
-    this.props.userInput(event.target.value);
-  }
-
-  render () {
-    return (
-      <input type="text"
-        placeholder="Start Typing"
-        value={this.props.searchTerm}
-        onChange={this.filterList} autoFocus>
-      </input>
-    );
-  }
-};
-
 
 // JSON
-var DATA = [{
-  "title": "Binding",
-  "imgURL": "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=231",
-  "tags": "Binding Hiding Miding Sliding SAVE",
-  "content": "This is the binding content area where information about binding is shown"
-}, {
-  "title": "Constant",
-  "tags": "Math bath slather calf save",
-  "content": "This is the Constant content area where information about Constant is shown"
-}, {
-  "title": "Numbers",
-  "tags": "Happy birthday sir and maam",
-  "content": "This is the Numbers content area where information about Numbers is shown"
-}];
+// var DATA = [{
+//   "title": "Binding",
+//   "imgURL": "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=231",
+//   "tags": "Binding Hiding Miding Sliding SAVE",
+//   "content": "This is the binding content area where information about binding is shown"
+// }, {
+//   "title": "Constant",
+//   "imgURL": "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=231",
+//   "tags": "Math bath slather calf save",
+//   "content": "This is the Constant content area where information about Constant is shown"
+// }, {
+//   "title": "Numbers",
+//   "imgURL": "https://cms.qz.com/wp-content/uploads/2018/05/china-pandas-eyes-turned-white-in-sichuan-2018-e1525405988661.jpg?quality=75&strip=all&w=410&h=231",
+//   "tags": "Happy birthday sir and maam",
+//   "content": "This is the Numbers content area where information about Numbers is shown"
+// }];
 
 export default function Searching(){
   return(
