@@ -1,122 +1,7 @@
 import React from 'react';
 
-// Table Data
-var TableData = React.createClass({
-  render: function() {
-    return (
-      <p> {this.props.data} </p>
-    );
-  }
-});
 
-// Table Element
-var TableTitle = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <h2> {this.props.title}</h2>
-      </div>
-    );
-  }
-});
-
-var SearchMatch = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <p> Match: {this.props.match}</p>
-      </div>
-    );
-  }
-});
-
-// Table
-var Table = React.createClass({
-  render: function() {
-    // We need to get each row and store it in an array
-    var rowsTitle = [];
-    var search = [];
-    var searchterm = this.props.searchTerm; // need this or it doesnt work
-    var key = '';
-    this.props.data.forEach(function(row) {
-      if (row.title.toLowerCase().indexOf(searchterm.toLowerCase()) === -1 && 
-          row.tags.toLowerCase().indexOf(searchterm.toLowerCase()) === -1
-         )
-        return;
-  
-      // need to grab the correct match
-      if (row.title.toLowerCase().indexOf(searchterm.toLowerCase()) === -1) {
-        var m = row.tags.toLowerCase().split(' ');
-        for (var i in m)
-         if (m[i].indexOf(searchterm.toLowerCase()) !== -1)
-            key = m[i];
-      } else {
-        key = row.title.toLowerCase();
-      }
-      rowsTitle.push( <TableTitle title = {row.title} />);
-      if (searchterm != '')
-        rowsTitle.push( <SearchMatch match ={key} />);
-      rowsTitle.push( <TableData data = {row.content} />);
-      
-
-    });
-
-    // Then render all. Render using childs. Send them prop.title and prop.data
-    return (
-      <div>
-        {rowsTitle}
-      </div>
-    );
-  }
-  });
-
-// Search
-var Search = React.createClass({
-
-filterList: function(event) {
-  this.props.userInput(event.target.value);
-},
-
-render: function() {
-  return (
-    <input type = "text"
-      placeholder = "Start Typing"
-      value = {this.props.searchTerm}
-      onChange = {this.filterList} autoFocus>
-    </input>
-  );
-}
-});
-
-// App
-var App = React.createClass({
-
-  getInitialState: function() {
-    return {
-      filterText: '',
-      filterText2: ''
-    };
-  },
-
-  handleUserInput: function(filter) {
-    this.setState({
-      filterText: filter
-    });
-  },
-
-  render: function() {
-
-    return ( 
-      <div> 
-          <Search searchTerm = {this.state.filterText} userInput = {this.handleUserInput} />     
-          <Table searchTerm = {this.state.filterText} data = {this.props.data} /> 
-      </div>
-    );
-}
-});
-
-// JSON
-var DATA = [{
+const DATA = [{
   "title": "Binding",
   "tags": "Binding Hiding Miding Sliding SAVE",
   "content": "This is the binding content area where information about binding is shown"
@@ -130,5 +15,50 @@ var DATA = [{
   "content": "This is the Numbers content area where information about Numbers is shown"
 }];
 
-// Render
-React.render(<App data = {DATA} />, document.getElementById("app"));
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      data: DATA,
+      searchTerm : this.props.searchTerm
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  //setting user input to JS Object
+  handleChange(event) {
+    this.setState({input: event.target.value});
+    console.log(this.state.input, 'USER INPUT');
+  }
+
+  handleSubmit(event) {
+    this.setState({data: event.target.value})
+    event.preventDefault()
+  }
+
+  results(e) {
+    DATA.map(e => {console.log(e.title)})
+  }
+
+  render() {
+    // this.props.data(forEach)
+    console.log(this.state.input, 'CHANGING')
+    console.log(this.results())
+    return(
+      <div>
+        <h1>Search Items</h1>
+          <input type="text" value={this.state.input} onChange={this.handleChange}/>
+          <button onSubmit={this.handleSubmit}>Search</button>
+          {DATA.map(e =>
+            <p>
+              <b>{e.title}</b>: { e.content}
+            </p>
+          )}
+      </div>
+    )
+  }
+}
+
+export default Search;

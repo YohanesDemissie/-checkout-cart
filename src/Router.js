@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ToysPage from './pages/ToysPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import Search from './pages/Search';
 import OrdersPage from './pages/OrdersPage';
 
 const Router = () => {
@@ -14,6 +15,7 @@ const Router = () => {
       <Route exact path='/toys' component={ToysPage} />
       <Route exact path='/cart' component={CartPage} />
       <Route exact path='/checkout' component={CheckoutPage} />
+      <Route exact path='/search' component={Search} />
       <Route path='/orders/:id' component={OrdersPage} />
     </Switch>
   )

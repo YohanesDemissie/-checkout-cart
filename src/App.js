@@ -4,6 +4,7 @@ import Router from './Router';
 import { NavLink, withRouter } from 'react-router-dom' //with router allows us to use connect on our App component without destroying the function of routing
 // import cart from './features/cart';
 // import Navigation from './pages/Navbar';
+import Searching from './pages/Search';
 import './styles/nav.css';
 import './styles/side-menu.css';
 
@@ -15,7 +16,7 @@ const Navigation = ({ cart }) => <nav>
       return acc + item.quantity
     }, 0)})</NavLink></li> {/* cart.reduce is necessary to accumulate total items(starting at 0), rather than just the amount of different items(ie: counting items by id rather than by quantity*/}
     <li><NavLink className="links" to='/checkout'>Check out</NavLink></li>
-    <input class="search-input" />
+    <li><NavLink className="links" to='/search'>Search</NavLink></li>
 
     <button id="magnifying-glass">
     </button>
